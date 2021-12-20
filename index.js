@@ -7,6 +7,10 @@ const port = 3000
 
 const app = express();
 
+//es un metodo para reconocer el objeto de solicitud entrante
+//como objeto json,
+app.use(express.json());
+
 //definir una ruta y le haremos una peticion
 // res = response
 //  req = request
