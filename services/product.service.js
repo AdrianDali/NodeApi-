@@ -18,7 +18,13 @@ class ProductsService {
     }
   }
 
-  create(){
+  create(data){
+    const newProduct = {
+      id: faker.datatype.uuid(),
+      ...data
+    }
+    this.products.push(newProduct)
+    return newProduct;
 
   }
   find(){
@@ -29,10 +35,29 @@ class ProductsService {
     return  this.products.find(item => item.id === id)
 
   }
-  update(){
+  update(id, changes){
+    const index = this.products.findIndex(item => item.id === id);
+    //ver si si existe el elemento
+    if(index === -1){
+      throw new Error('product not found')
+    }
+    // enla posicion le mandara los cambios
+    this.products[index] = changes;
+    //lo retornamos
+    return this.products[index];
 
   }
-  delete(){
+  delete(id){
+    const index = this.products.findIndex(item => item.id === id);
+    if(index === -1){
+      throw new Error("product not found")
+    }
+    //splice elimina elemento de una posicion y a partir de que posicion
+    this.products.splice(index, 1)
+    return {
+      message: true,
+      id
+    }
 
   }
 }
