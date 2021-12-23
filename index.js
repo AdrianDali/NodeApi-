@@ -1,5 +1,6 @@
 const express = require('express')
 const routerApi = require('./routes')
+const {logErrors, errorHandler, boomErrorHandler} = require('./middlewares/error.handler')
 const port = 3000
 
 
@@ -26,6 +27,10 @@ app.get('/nueva-ruta',(req, res) =>{
 
 routerApi(app)
 
+//para los middlewarew de error
+app.use(logErrors);
+app.use(boomErrorHandler)
+app.use(errorHandler);
 
 //escuchar un puerto en especifico
 app.listen(port, () => {
