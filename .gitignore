@@ -4,7 +4,7 @@
 ### Linux ###
 * ~
 
-# archivos temporales que se pueden crear si un proceso todavía tiene un identificador abierto de un archivo eliminado
+# .archivos temporales que se pueden crear si un proceso todavía tiene un identificador abierto de un archivo eliminado
 .fuse_hidden *
 
 # Preferencias del directorio de KDE
