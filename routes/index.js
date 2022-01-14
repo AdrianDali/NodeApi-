@@ -4,7 +4,7 @@ const userRouter = require('./users.router')
 
 function routerApi(app){
   const router = express.Router();
-  app.use('/fes/ico', router)
+  app.use('/api/v1', router)
   router.use('/products', productRouter)
   router.use('/users', userRouter)
 }
