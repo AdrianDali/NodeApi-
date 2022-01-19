@@ -17,7 +17,7 @@ app.use(express.json());
  * habilitamos a cualquier dominio.
  * Si no ponemos esto solo aceptara a su mismo dominio */
 const whitelist = ['http://localhost:8080', 'https://myapp.com', 'localhost:3000/index.html'];
-const options = {
+/**const options = {
  origin: (origin,callback) =>{
    if (whitelist.includes(origin) ) {
      callback(null,true)
@@ -25,14 +25,14 @@ const options = {
      callback(new Error('Noooooo permitido'))
    }
  }
-}
-app.use(cors(options));
+}**/
+
 
 
 //definir una ruta y le haremos una peticion
 // res = response
 //  req = request
-app.get('/',(req, res) =>{
+app.get('/',cors(),(req, res) =>{
   res.send("Hola mi server");
 
 })
@@ -43,6 +43,8 @@ app.get('/nueva-ruta',(req, res) =>{
 
 
 routerApi(app)
+
+app.use(cors(/**options**/));
 
 //para los middlewarew de error
 app.use(logErrors);
