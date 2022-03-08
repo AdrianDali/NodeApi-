@@ -16,7 +16,7 @@ app.use(express.json());
 /**Esta es la forma mas facil de usar cors,
  * habilitamos a cualquier dominio.
  * Si no ponemos esto solo aceptara a su mismo dominio */
-const whitelist = ['http://localhost:8080', 'https://myapp.com', 'localhost:3000/index.html'];
+//const whitelist = ['http://localhost:8080', 'https://myapp.com', 'localhost:3000/index.html'];
 /**const options = {
  origin: (origin,callback) =>{
    if (whitelist.includes(origin) ) {
